@@ -268,6 +268,169 @@
   .corner-tr { top: 12px; right: 12px; border-top: 1px solid var(--gold); border-right: 1px solid var(--gold); }
   .corner-bl { bottom: 12px; left: 12px; border-bottom: 1px solid var(--gold); border-left: 1px solid var(--gold); }
   .corner-br { bottom: 12px; right: 12px; border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+
+  #clock-time { cursor: default; }
+
+  /* ================== ADMIN PANEL ================== */
+  #admin-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 8, 14, 0.82);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 24px;
+  }
+  #admin-overlay.open { display: flex; }
+  #admin-panel {
+    background: #10192A;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 760px;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 26px 32px 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  #admin-panel::-webkit-scrollbar { width: 8px; }
+  #admin-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  .admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .admin-header h2 {
+    font-family: 'Geom Graphic', 'Orbitron', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .admin-close {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 30px; height: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+  }
+  .admin-close:hover { border-color: var(--gold); color: var(--gold); }
+  .admin-section { margin-bottom: 26px; }
+  .admin-section h3 {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 12px;
+  }
+  .field { margin-bottom: 12px; }
+  .field label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+  }
+  .field .hint {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 4px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+  .field input[type="text"],
+  .field input[type="number"],
+  .field textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    padding: 9px 11px;
+    border-radius: 6px;
+    outline: none;
+  }
+  .field input:focus, .field textarea:focus { border-color: var(--gold); }
+  .field textarea { resize: vertical; min-height: 54px; line-height: 1.4; }
+  .field-row { display: flex; gap: 12px; }
+  .field-row .field { flex: 1; }
+
+  .ann-editor-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px 16px;
+    margin-bottom: 14px;
+    background: rgba(255,255,255,0.02);
+  }
+  .ann-editor-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .ann-editor-top .tag {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  .ann-editor-actions { display: flex; gap: 6px; }
+  .icon-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    width: 26px; height: 26px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1;
+  }
+  .icon-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .icon-btn.danger:hover { border-color: #e0665f; color: #e0665f; }
+
+  .btn {
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+  }
+  .btn:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-primary { background: var(--gold); border-color: var(--gold); color: #0A101D; font-weight: 600; }
+  .btn-primary:hover { background: var(--gold); color: #0A101D; opacity: 0.9; }
+  .btn-add { width: 100%; border-style: dashed; margin-top: 4px; }
+
+  .admin-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+  .admin-footer-right { display: flex; gap: 10px; }
+
+  .logo-preview-row { display: flex; align-items: center; gap: 14px; }
+  #logo-preview {
+    height: 40px; max-width: 140px; object-fit: contain;
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    border-radius: 6px; padding: 4px;
+  }
+  .field input[type="file"] { color: var(--text-muted); font-size: 12px; }
 </style>
 </head>
 <body>
@@ -349,14 +512,75 @@
   </div>
 </div>
 
+<!-- ADMIN PANEL (hidden — click the clock 5x, or Ctrl+Alt+A, to open) -->
+<div id="admin-overlay">
+  <div id="admin-panel">
+    <div class="admin-header">
+      <h2>Board Settings</h2>
+      <button class="admin-close" id="admin-close-btn" title="Close">✕</button>
+    </div>
+
+    <div class="admin-section">
+      <h3>General</h3>
+      <div class="field">
+        <label for="f-title">Board Title</label>
+        <input type="text" id="f-title">
+      </div>
+      <div class="field">
+        <label for="f-subtitle">Subtitle</label>
+        <input type="text" id="f-subtitle">
+      </div>
+      <div class="field">
+        <label for="f-interval">Slide Interval (seconds)</label>
+        <input type="number" id="f-interval" min="2" max="120">
+      </div>
+    </div>
+
+    <div class="admin-section">
+      <h3>Video & Logo</h3>
+      <div class="field">
+        <label for="f-playlist">YouTube Playlist (paste the full URL or just the ID)</label>
+        <input type="text" id="f-playlist" placeholder="https://www.youtube.com/playlist?list=...">
+      </div>
+      <div class="field">
+        <label>Logo</label>
+        <div class="logo-preview-row">
+          <img id="logo-preview" src="logo.png" alt="" onerror="this.style.visibility='hidden'">
+          <input type="file" id="f-logo" accept="image/*">
+          <button class="btn" id="logo-remove-btn" type="button">Remove</button>
+        </div>
+        <div class="hint">Uploaded logos are saved with your other settings and used instead of logo.png.</div>
+      </div>
+    </div>
+
+    <div class="admin-section">
+      <h3>Announcements</h3>
+      <div id="ann-editor-list"></div>
+      <button class="btn btn-add" id="ann-add-btn" type="button">+ Add Announcement</button>
+    </div>
+
+    <div class="admin-footer">
+      <button class="btn" id="admin-reset-btn" type="button">Reset to Defaults</button>
+      <div class="admin-footer-right">
+        <button class="btn" id="admin-cancel-btn" type="button">Cancel</button>
+        <button class="btn btn-primary" id="admin-save-btn" type="button">Save & Apply</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 // ============================================================
-//  CONFIGURATION — Edit everything in this block
+//  DEFAULT CONFIGURATION — used the first time the board runs,
+//  and restored whenever "Reset to Defaults" is used in Settings.
+//  Everything here can also be edited live: click the clock 5x
+//  quickly (or press Ctrl+Alt+A) to open the Settings panel.
 // ============================================================
-const CONFIG = {
+const DEFAULT_CONFIG = {
   boardTitle:    "Announcements - May 11th - 15th",
   boardSubtitle: "— Live Board —",
   intervalSecs:  8,
+  logoDataUrl:   null,
 
   // To change the playlist, replace the ID in the <iframe> src above
   // AND update this string to match — both must stay in sync.
@@ -371,7 +595,7 @@ const CONFIG = {
     },
     {
       category: "Schedule",
-      headline:  "This week's <em>Agenda</em>",
+      headline:  "This week's *Agenda*",
       body:      "Keep tabs on Customer Service Discrepancies. OCCT Alternatives",
       meta:      ["Message Mike any issues you may find."]
     },
@@ -383,7 +607,7 @@ const CONFIG = {
     },
     {
       category: "Notice",
-      headline:  "Drinks being <em>ordered</em>",
+      headline:  "Drinks being *ordered*",
       body:      "Mike is ordering beverages this week for the minifridge!",
       meta:      ["Let me know if there are any missing anything you really want."]
     }
@@ -391,47 +615,127 @@ const CONFIG = {
 };
 // ============================================================
 
-// ── ANNOUNCEMENTS ──────────────────────────────────────────
-const INTERVAL_MS = CONFIG.intervalSecs * 1000;
-let cur = 0, annTimer = null;
+// ── STORAGE ────────────────────────────────────────────────
+const STORAGE_KEY = 'annBoardConfig_v1';
 
-document.getElementById('board-title').textContent    = CONFIG.boardTitle;
-document.getElementById('board-subtitle').textContent = CONFIG.boardSubtitle;
+function loadConfig() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const saved = JSON.parse(raw);
+      // Merge over defaults so any newly-added default fields still exist.
+      return Object.assign({}, DEFAULT_CONFIG, saved);
+    }
+  } catch (e) { /* corrupted storage — fall back to defaults */ }
+  return JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+}
+
+function saveConfigToStorage() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(CONFIG));
+  } catch (e) {
+    alert('Could not save settings (storage may be full or disabled).');
+  }
+}
+
+let CONFIG = loadConfig();
+
+// ── TEXT FORMATTING — wrap words in *asterisks* for emphasis ─
+function escapeHtml(str) {
+  return String(str == null ? '' : str)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+function formatText(raw) {
+  return escapeHtml(raw).replace(/\*([^*]+)\*/g, '<em>$1</em>');
+}
+
+// ── VIDEO / LOGO RENDERING ────────────────────────────────────
+function parsePlaylistInput(input) {
+  if (!input) return '';
+  input = input.trim();
+  const match = input.match(/[?&]list=([^&]+)/);
+  if (match) return match[1];
+  return input.replace(/[?&]si=.*/, '').trim();
+}
+
+function applyVideoSrc() {
+  const iframe = document.getElementById('yt-iframe');
+  const id = CONFIG.youtubePlaylistId || '';
+  iframe.src = `https://www.youtube.com/embed/videoseries?list=${id}&autoplay=1&mute=1&playsinline=1&enablejsapi=1&rel=0`;
+}
+
+function applyLogo() {
+  const logoEl = document.getElementById('logo');
+  if (CONFIG.logoDataUrl) {
+    logoEl.style.display = '';
+    logoEl.src = CONFIG.logoDataUrl;
+  } else {
+    logoEl.style.display = '';
+    logoEl.src = 'logo.png';
+  }
+}
+
+// ── ANNOUNCEMENTS ──────────────────────────────────────────
+let INTERVAL_MS = CONFIG.intervalSecs * 1000;
+let cur = 0, annTimer = null;
 
 const annStage  = document.getElementById('announce-stage');
 const dotsEl    = document.getElementById('strip-dots');
 const counterEl = document.getElementById('strip-counter');
 const pbar      = document.getElementById('strip-pbar');
 
-CONFIG.announcements.forEach((ann, i) => {
-  const card = document.createElement('div');
-  card.className = 'ann-card' + (i === 0 ? ' active' : '');
-  card.id = 'ann-' + i;
+function renderBoard() {
+  // Header text
+  document.getElementById('board-title').textContent    = CONFIG.boardTitle;
+  document.getElementById('board-subtitle').textContent = CONFIG.boardSubtitle;
+  applyLogo();
+  applyVideoSrc();
 
-  const metaHtml = ann.meta && ann.meta.length
-    ? `<div class="ann-meta-row">${
-        ann.meta.map((m, idx) =>
-          (idx > 0 ? '<span class="ann-meta-sep">·</span>' : '') + `<span>${m}</span>`
-        ).join('')
-      }</div>`
-    : '';
+  // Rebuild announcement cards + dots from scratch
+  clearInterval(annTimer);
+  annStage.innerHTML = '';
+  dotsEl.innerHTML = '';
+  cur = 0;
+  INTERVAL_MS = (CONFIG.intervalSecs || 8) * 1000;
 
-  card.innerHTML = `
-    <span class="ann-cat">${ann.category}</span>
-    <div class="ann-divider"></div>
-    <div>
-      <div class="ann-headline">${ann.headline}</div>
-      <div class="ann-body">${ann.body}</div>
-    </div>
-    ${metaHtml}
-  `;
-  annStage.appendChild(card);
+  CONFIG.announcements.forEach((ann, i) => {
+    const card = document.createElement('div');
+    card.className = 'ann-card' + (i === 0 ? ' active' : '');
+    card.id = 'ann-' + i;
 
-  const dot = document.createElement('div');
-  dot.className = 's-dot' + (i === 0 ? ' active' : '');
-  dot.addEventListener('click', () => goTo(i));
-  dotsEl.appendChild(dot);
-});
+    const metaHtml = ann.meta && ann.meta.length
+      ? `<div class="ann-meta-row">${
+          ann.meta.map((m, idx) =>
+            (idx > 0 ? '<span class="ann-meta-sep">·</span>' : '') + `<span>${formatText(m)}</span>`
+          ).join('')
+        }</div>`
+      : '';
+
+    card.innerHTML = `
+      <span class="ann-cat">${escapeHtml(ann.category)}</span>
+      <div class="ann-divider"></div>
+      <div>
+        <div class="ann-headline">${formatText(ann.headline)}</div>
+        <div class="ann-body">${formatText(ann.body)}</div>
+      </div>
+      ${metaHtml}
+    `;
+    annStage.appendChild(card);
+
+    const dot = document.createElement('div');
+    dot.className = 's-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(dot);
+  });
+
+  if (CONFIG.announcements.length) {
+    counterEl.textContent = `1 / ${CONFIG.announcements.length}`;
+    startPbar();
+    annTimer = setInterval(() => goTo((cur + 1) % CONFIG.announcements.length), INTERVAL_MS);
+  } else {
+    counterEl.textContent = '0 / 0';
+  }
+}
 
 function startPbar() {
   pbar.style.transition = 'none';
@@ -443,6 +747,7 @@ function startPbar() {
 }
 
 function goTo(index) {
+  if (!CONFIG.announcements.length) return;
   clearInterval(annTimer);
   const prev = document.getElementById('ann-' + cur);
   dotsEl.children[cur].classList.remove('active');
@@ -457,13 +762,180 @@ function goTo(index) {
   annTimer = setInterval(() => goTo((cur + 1) % CONFIG.announcements.length), INTERVAL_MS);
 }
 
-counterEl.textContent = `1 / ${CONFIG.announcements.length}`;
-startPbar();
-annTimer = setInterval(() => goTo((cur + 1) % CONFIG.announcements.length), INTERVAL_MS);
+renderBoard();
 
 document.addEventListener('keydown', e => {
+  if (adminOverlay.classList.contains('open')) return;
   if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goTo((cur + 1) % CONFIG.announcements.length);
   if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')  goTo((cur - 1 + CONFIG.announcements.length) % CONFIG.announcements.length);
+});
+
+// ── ADMIN PANEL ──────────────────────────────────────────────
+const adminOverlay   = document.getElementById('admin-overlay');
+const annEditorList  = document.getElementById('ann-editor-list');
+let editingAnnouncements = [];
+let pendingLogoDataUrl = undefined; // undefined = unchanged, null = removed, string = new upload
+
+function openAdmin() {
+  document.getElementById('f-title').value    = CONFIG.boardTitle;
+  document.getElementById('f-subtitle').value = CONFIG.boardSubtitle;
+  document.getElementById('f-interval').value = CONFIG.intervalSecs;
+  document.getElementById('f-playlist').value = CONFIG.youtubePlaylistId || '';
+
+  pendingLogoDataUrl = undefined;
+  document.getElementById('f-logo').value = '';
+  const preview = document.getElementById('logo-preview');
+  preview.style.visibility = '';
+  preview.src = CONFIG.logoDataUrl || 'logo.png';
+
+  editingAnnouncements = JSON.parse(JSON.stringify(CONFIG.announcements));
+  renderAnnEditorList();
+
+  adminOverlay.classList.add('open');
+}
+
+function closeAdmin() {
+  adminOverlay.classList.remove('open');
+}
+
+function renderAnnEditorList() {
+  annEditorList.innerHTML = '';
+  editingAnnouncements.forEach((ann, i) => {
+    const card = document.createElement('div');
+    card.className = 'ann-editor-card';
+    card.innerHTML = `
+      <div class="ann-editor-top">
+        <span class="tag">Announcement ${i + 1}</span>
+        <div class="ann-editor-actions">
+          <button class="icon-btn" data-act="up" title="Move up">↑</button>
+          <button class="icon-btn" data-act="down" title="Move down">↓</button>
+          <button class="icon-btn danger" data-act="del" title="Delete">✕</button>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Category</label>
+          <input type="text" data-field="category" value="${escapeHtml(ann.category)}">
+        </div>
+      </div>
+      <div class="field">
+        <label>Headline &nbsp;<span class="hint" style="display:inline">(wrap *words* in asterisks to highlight them)</span></label>
+        <input type="text" data-field="headline" value="${escapeHtml(ann.headline)}">
+      </div>
+      <div class="field">
+        <label>Body</label>
+        <textarea data-field="body">${escapeHtml(ann.body)}</textarea>
+      </div>
+      <div class="field">
+        <label>Meta line(s) &nbsp;<span class="hint" style="display:inline">(one per line, shown as small text at the bottom)</span></label>
+        <textarea data-field="meta">${escapeHtml((ann.meta || []).join('\n'))}</textarea>
+      </div>
+    `;
+
+    card.querySelector('[data-field="category"]').addEventListener('input', e => ann.category = e.target.value);
+    card.querySelector('[data-field="headline"]').addEventListener('input', e => ann.headline = e.target.value);
+    card.querySelector('[data-field="body"]').addEventListener('input', e => ann.body = e.target.value);
+    card.querySelector('[data-field="meta"]').addEventListener('input', e => {
+      ann.meta = e.target.value.split('\n').map(s => s.trim()).filter(Boolean);
+    });
+
+    card.querySelector('[data-act="del"]').addEventListener('click', () => {
+      editingAnnouncements.splice(i, 1);
+      renderAnnEditorList();
+    });
+    card.querySelector('[data-act="up"]').addEventListener('click', () => {
+      if (i === 0) return;
+      [editingAnnouncements[i - 1], editingAnnouncements[i]] = [editingAnnouncements[i], editingAnnouncements[i - 1]];
+      renderAnnEditorList();
+    });
+    card.querySelector('[data-act="down"]').addEventListener('click', () => {
+      if (i === editingAnnouncements.length - 1) return;
+      [editingAnnouncements[i + 1], editingAnnouncements[i]] = [editingAnnouncements[i], editingAnnouncements[i + 1]];
+      renderAnnEditorList();
+    });
+
+    annEditorList.appendChild(card);
+  });
+}
+
+document.getElementById('ann-add-btn').addEventListener('click', () => {
+  editingAnnouncements.push({ category: 'Notice', headline: 'New announcement', body: '', meta: [] });
+  renderAnnEditorList();
+});
+
+document.getElementById('f-logo').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    pendingLogoDataUrl = reader.result;
+    const preview = document.getElementById('logo-preview');
+    preview.style.visibility = '';
+    preview.src = pendingLogoDataUrl;
+  };
+  reader.readAsDataURL(file);
+});
+
+document.getElementById('logo-remove-btn').addEventListener('click', () => {
+  pendingLogoDataUrl = null;
+  document.getElementById('f-logo').value = '';
+  const preview = document.getElementById('logo-preview');
+  preview.src = 'logo.png';
+});
+
+document.getElementById('admin-save-btn').addEventListener('click', () => {
+  CONFIG.boardTitle    = document.getElementById('f-title').value.trim() || DEFAULT_CONFIG.boardTitle;
+  CONFIG.boardSubtitle = document.getElementById('f-subtitle').value.trim();
+  const interval = parseInt(document.getElementById('f-interval').value, 10);
+  CONFIG.intervalSecs = (Number.isFinite(interval) && interval >= 2) ? interval : DEFAULT_CONFIG.intervalSecs;
+  CONFIG.youtubePlaylistId = parsePlaylistInput(document.getElementById('f-playlist').value);
+
+  if (pendingLogoDataUrl !== undefined) CONFIG.logoDataUrl = pendingLogoDataUrl;
+
+  CONFIG.announcements = editingAnnouncements
+    .map(a => ({
+      category: (a.category || '').trim() || 'Notice',
+      headline: (a.headline || '').trim(),
+      body:     (a.body || '').trim(),
+      meta:     (a.meta || []).filter(Boolean)
+    }))
+    .filter(a => a.headline || a.body);
+
+  saveConfigToStorage();
+  renderBoard();
+  closeAdmin();
+});
+
+document.getElementById('admin-cancel-btn').addEventListener('click', closeAdmin);
+document.getElementById('admin-close-btn').addEventListener('click', closeAdmin);
+adminOverlay.addEventListener('click', e => { if (e.target === adminOverlay) closeAdmin(); });
+
+document.getElementById('admin-reset-btn').addEventListener('click', () => {
+  if (!confirm('Reset all settings back to the original defaults? This cannot be undone.')) return;
+  CONFIG = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+  saveConfigToStorage();
+  renderBoard();
+  closeAdmin();
+});
+
+// Open via: clicking the clock 5x quickly, or Ctrl+Alt+A
+let clockClickCount = 0, clockClickTimer = null;
+document.getElementById('clock-time').addEventListener('click', () => {
+  clockClickCount++;
+  clearTimeout(clockClickTimer);
+  clockClickTimer = setTimeout(() => { clockClickCount = 0; }, 2500);
+  if (clockClickCount >= 5) {
+    clockClickCount = 0;
+    openAdmin();
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey && e.altKey && (e.key === 'a' || e.key === 'A')) {
+    e.preventDefault();
+    if (adminOverlay.classList.contains('open')) closeAdmin(); else openAdmin();
+  }
+  if (e.key === 'Escape' && adminOverlay.classList.contains('open')) closeAdmin();
 });
 
 // ── CLOCK ──────────────────────────────────────────────────

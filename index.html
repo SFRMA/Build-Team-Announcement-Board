@@ -552,7 +552,7 @@ const DEFAULT_CONFIG = {
 };
 // ============================================================
 
-// ──────────────────────────────────────────────── STORAGE ────────────────────────────────────────────────
+// =========================== STORAGE ===========================
 const STORAGE_KEY = 'annBoardConfig_v1';
 
 function loadConfig() {
@@ -612,7 +612,7 @@ function applyLogo() {
   }
 }
 
-// ── ANNOUNCEMENTS ──────────────────────────────────────────
+// ─────────────────────── ANNOUNCEMENTS ───────────────────────────────
 let INTERVAL_MS = CONFIG.intervalSecs * 1000;
 let cur = 0, annTimer = null;
 
@@ -628,7 +628,7 @@ function renderBoard() {
   applyLogo();
   applyVideoSrc();
 
-  // Rebuild announcement cards + dots from scratch
+  // *PATCH* Rebuild announcement cards + dots from scratch
   clearInterval(annTimer);
   annStage.innerHTML = '';
   dotsEl.innerHTML = '';

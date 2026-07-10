@@ -643,7 +643,8 @@ let CONFIG = loadConfig();
 // ── TEXT FORMATTING — wrap words in *asterisks* for emphasis ─
 function escapeHtml(str) {
   return String(str == null ? '' : str)
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 function formatText(raw) {
   return escapeHtml(raw).replace(/\*([^*]+)\*/g, '<em>$1</em>');
@@ -812,25 +813,30 @@ function renderAnnEditorList() {
           <button class="icon-btn danger" data-act="del" title="Delete">✕</button>
         </div>
       </div>
-      <div class="field-row">
-        <div class="field">
-          <label>Category</label>
-          <input type="text" data-field="category" value="${escapeHtml(ann.category)}">
-        </div>
+      <div class="field">
+        <label>Category</label>
+        <input type="text" data-field="category">
       </div>
       <div class="field">
         <label>Headline &nbsp;<span class="hint" style="display:inline">(wrap *words* in asterisks to highlight them)</span></label>
-        <input type="text" data-field="headline" value="${escapeHtml(ann.headline)}">
+        <input type="text" data-field="headline">
       </div>
       <div class="field">
         <label>Body</label>
-        <textarea data-field="body">${escapeHtml(ann.body)}</textarea>
+        <textarea data-field="body"></textarea>
       </div>
       <div class="field">
         <label>Meta line(s) &nbsp;<span class="hint" style="display:inline">(one per line, shown as small text at the bottom)</span></label>
-        <textarea data-field="meta">${escapeHtml((ann.meta || []).join('\n'))}</textarea>
+        <textarea data-field="meta"></textarea>
       </div>
     `;
+
+    // Assign values as DOM properties (not HTML attributes) so quote
+    // characters, ampersands, etc. in the text can never corrupt markup.
+    card.querySelector('[data-field="category"]').value = ann.category || '';
+    card.querySelector('[data-field="headline"]').value = ann.headline || '';
+    card.querySelector('[data-field="body"]').value = ann.body || '';
+    card.querySelector('[data-field="meta"]').value = (ann.meta || []).join('\n');
 
     card.querySelector('[data-field="category"]').addEventListener('input', e => ann.category = e.target.value);
     card.querySelector('[data-field="headline"]').addEventListener('input', e => ann.headline = e.target.value);
@@ -952,7 +958,7 @@ function updateClock() {
   });
 }
 updateClock();
-setInterval(updateClock, 10000);
+setInterval(updateClock, 1000);
 
 // ── YOUTUBE TITLE DETECTION (layered on top of the iframe) ──
 //
